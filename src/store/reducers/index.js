@@ -6,6 +6,7 @@ import {
   BEER_SELECTED_ID,
   HEADER_ACTION_CHANGE,
   SIDER_TOGGLE,
+  SIDER_CLOSE,
 } from "../actions/action.types";
 const initialState = {
   selectedBeerId: -1,
@@ -58,6 +59,9 @@ const rootReducer = (state = initialState, action) => {
 
     case BEER_SELECTED_ID:
       return { ...state, selectedBeerId: action.payload };
+
+    case SIDER_CLOSE:
+      return { ...state, sider: { showSider: false } };
 
     default:
       break;

@@ -1,11 +1,9 @@
 import BeerList from "./pages/BeerList";
 import Beer from "./pages/Beer";
-// import BeerInfo from "./pages/BeerInfo";
 import NotFound from "./pages/404";
 
 const BEERS_LIST = "/";
 const BEER = "/beer/:id";
-// const BEERS_INFO = "/beer-info/:id";
 const NOT_FOUND = "*";
 
 const routes = [

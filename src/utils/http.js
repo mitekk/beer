@@ -5,6 +5,5 @@ export const getBeer = () =>
     .get("https://random-data-api.com/api/beer/random_beer")
     .then((response) => response.data)
     .catch((error) => {
-      // handle error
       console.log(error);
     });

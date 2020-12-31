@@ -6,6 +6,7 @@ import {
   BEER_SELECTED_ID,
   HEADER_ACTION_CHANGE,
   SIDER_TOGGLE,
+  SIDER_CLOSE,
 } from "./action.types";
 import { getBeer } from "../../utils/http";
 
@@ -28,4 +29,9 @@ export const changeHeaderButtonAction = (newBtnValue) => ({
 
 export const toggleSider = () => ({ type: SIDER_TOGGLE });
 
-export const setSelectedBeer = (id) => ({ type: BEER_SELECTED_ID, payload: id });
+export const setSelectedBeer = (id) => ({
+  type: BEER_SELECTED_ID,
+  payload: id,
+});
+
+export const closeSider = () => ({ type: SIDER_CLOSE });

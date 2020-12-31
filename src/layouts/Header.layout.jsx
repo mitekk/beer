@@ -1,19 +1,23 @@
 import { Wrapper, ButtonsContainer, Title } from "./Header.layout.styled";
 import { Button, Row, Col, Layout } from "antd";
 import { ReloadOutlined, ArrowLeftOutlined } from "@ant-design/icons";
-import { reset } from "../store/actions";
-import { connect } from "react-redux";
+import { reset, closeSider } from "../store/actions";
+import { connect, useSelector, useDispatch } from "react-redux";
 import { getHeaderActionState } from "../store/selectors";
 import { Link } from "react-router-dom";
 
 const { Header } = Layout;
 
-const mapDispatchToProps = { reset };
+const mapDispatchToProps = { reset, closeSider };
 const mapStateToProps = (state) => ({
   showReload: getHeaderActionState(state),
 });
 
-const StyledHeader = ({ showReload, reset }) => {
+const StyledHeader = ({ showReload, reset, closeSider }) => {
+  // const isReload = useSelector(getHeaderActionState);
+  // const dispatch = useDispatch();
+  // dispatch(reset)
+
   return (
     <Header className="header">
       <Wrapper>
@@ -30,10 +34,10 @@ const StyledHeader = ({ showReload, reset }) => {
               {showReload ? (
                 <Button
                   shape="circle"
-                  icon={<ReloadOutlined onClick={reset} />}
+                  icon={<ReloadOutlined onClick={() => reset} />}
                 />
               ) : (
-                <Link to="/">
+                <Link to="/" onClick={closeSider}>
                   <Button shape="circle" icon={<ArrowLeftOutlined />} />
                 </Link>
               )}
